@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks:
+      - name: create the kubebasic user
+        user: name=kubebasic append=yes state=present createhome=yes shell=/bin/bash
+      
+      - name: allow kubebasic to have passwordless sudo
+        lineinfile:
+          dest: /etc/sudoers
+          line: 'kubebasic ALL=(ALL) NOPASSWD: ALL'
+          validate: 'visudo -cf %s'
+      
+      - name: set up authorized keys for the kubebasic user
+        authorized_key: user=kubebasic key="{{item}}"
+        with_file:
+            - ~/.ssh/id_rsa.pub

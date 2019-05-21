@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  backend:
+    build: ./hello-world-api
+    command: npm run start:dev
+    ports:
+      - '3000:3000'

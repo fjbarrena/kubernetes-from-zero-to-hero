@@ -1,22 +1,18 @@
 [master]
-master ansible_host=192.168.16.100 ansible_user=aulafor
+master ansible_host=192.168.16.100 ansible_user=aulafor ansible_sudo_pass=aulafor
 
 [workers]
-worker1 ansible_host=192.168.16.113 ansible_user=aulafor
-worker2 ansible_host=192.168.16.101 ansible_user=aulafor
-worker3 ansible_host=192.168.16.107 ansible_user=aulafor
-worker4 ansible_host=192.168.16.105 ansible_user=aulafor
-worker5 ansible_host=192.168.16.106 ansible_user=aulafor
-worker6 ansible_host=192.168.16.114 ansible_user=aulafor
-worker7 ansible_host=192.168.16.115 ansible_user=aulafor
-worker9 ansible_host=192.168.16.108 ansible_user=aulafor
-worker10 ansible_host=192.168.16.109 ansible_user=aulafor
-worker11 ansible_host=192.168.16.110 ansible_user=aulafor
-worker12 ansible_host=192.168.16.111 ansible_user=aulafor
-worker13 ansible_host=192.168.16.102 ansible_user=aulafor
-worker14 ansible_host=192.168.16.103 ansible_user=aulafor
-worker15 ansible_host=192.168.16.112 ansible_user=aulafor
-worker16 ansible_host=192.168.16.104 ansible_user=aulafor
+worker1 ansible_host=192.168.16.113 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker2 ansible_host=192.168.16.101 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker3 ansible_host=192.168.16.107 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker4 ansible_host=192.168.16.105 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker5 ansible_host=192.168.16.106 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker6 ansible_host=192.168.16.114 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker7 ansible_host=192.168.16.115 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker8 ansible_host=192.168.16.111 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker9 ansible_host=192.168.16.103 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker10 ansible_host=192.168.16.112 ansible_user=aulafor ansible_sudo_pass=aulafor
+worker11 ansible_host=192.168.16.104 ansible_user=aulafor ansible_sudo_pass=aulafor
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

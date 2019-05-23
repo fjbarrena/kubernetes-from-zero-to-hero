@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+  namespace: default
+  labels:
+    app: jenkins
+spec:
+  containers:
+    - image: jenkins
+      name: jenkins

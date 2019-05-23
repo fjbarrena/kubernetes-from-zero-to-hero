@@ -1,0 +1,17 @@
+- hosts: master
+  become: yes
+  tasks:
+    - name: install jenkins Pod
+      shell: kubectl create -f jenkins-pod.yaml
+      become: yes
+      become_user: kubebasic
+
+    - name: install jenkins Service
+      shell: kubectl create -f jenkins-service.yaml
+      become: yes
+      become_user: kubebasic
+
+    - name: install jenkins deployment
+      shell: kubectl create -f jenkins-deployment.yaml
+      become: yes
+      become_user: kubebasic

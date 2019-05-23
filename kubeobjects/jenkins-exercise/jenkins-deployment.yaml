@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  namespace: default
+  labels:
+    app: jenkins
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - image: jenkins
+          name: jenkins
+          ports:
+            - name: http
+              containerPort: 8080

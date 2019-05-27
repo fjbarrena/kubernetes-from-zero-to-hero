@@ -2,3 +2,9 @@
 hello-world-api/node_modules/
 
 hello-world/hello-world-api/node_modules/
+
+nest-example/node_modules/
+
+shared-auth/backend/node_modules/
+
+shared-auth/database/

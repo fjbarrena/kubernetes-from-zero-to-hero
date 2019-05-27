@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chucknorrispod
+  namespace: default
+  labels:
+    app: chucknorris
+spec:
+  containers:
+    - image: fjbarrena/chucknorris:2.0
+      name: fjbarrena/chucknorris:2.0
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: chucknorrisservice
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: chucknorrisdeployment
+  namespace: default
+  labels:
+    app: chucknorris
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: chucknorris
+    spec:
+      containers:
+        - image: fjbarrena/chucknorris:2.0
+          name: chucknorrisdeployment
+          ports:
+            - name: http
+              containerPort: 3000

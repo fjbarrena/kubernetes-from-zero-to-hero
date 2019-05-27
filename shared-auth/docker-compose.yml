@@ -1,0 +1,57 @@
+version: "3.4"
+services:
+  backend:
+    build: ./backend
+    command: npm run start:dev
+    # command: bash -c "sleep 10 && npm run start:dev"
+    volumes:
+      - "./backend:/opt/SharedAuth/backend"
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+      - "5000:5000"
+    depends_on:
+      - database
+      - stub
+    # Hacemos que el backend tenga visibilidad de la base de datos y le asignamos el alias database
+    links:
+      - "database"
+
+  enrouter:
+    build: ./enrouter
+    command: npm run start
+    volumes:
+      - "./enrouter:/opt/SharedAuth/enrouter"
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build:
+      context: ./frontend
+      target: builder
+    volumes:
+      - "./frontend/:/opt/SharedAuth/frontend"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - stub
+
+  stub:
+    build: ./stub
+    volumes:
+      - "./stub/:/opt/SharedAuth/stub"
+    ports:
+      - "3001:3001"
+
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: authserver
+    # Se redirige el puerto 3306 de la máquina dockerizada al 42333 de la máquina host
+    ports:
+      - "42333:3306"
+    volumes:
+      - "./database:/opt/SharedAuth/database"
+    command: --init-file /opt/SharedAuth/database/sql/seedv.06.dev.sql

@@ -1,0 +1,50 @@
+[INFO] - [2019-5-27 11:16:32] - Starting Nest application...
+[INFO] - [2019-5-27 11:16:34] - AppModule dependencies initialized
+[INFO] - [2019-5-27 11:16:34] - AppController {/api/}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - DomainEndpoint {/api/admin/domain}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - GroupEndpoint {/api/admin/group}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:name, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - PermissionEndpoint {/api/admin/permission}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - ProjectEndpoint {/api/admin/project}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - ResourceEndpoint {/api/admin/resource}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - UserEndpoint {/api/admin/user}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/password, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - RoleEndpoint {/api/admin/role}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, POST} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/, PUT} route
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, DELETE} route
+[INFO] - [2019-5-27 11:16:34] - MetadataEndpoint {/api/admin/metadata}:
+[INFO] - [2019-5-27 11:16:34] - Mapped {/:id, GET} route
+[INFO] - [2019-5-27 11:16:34] - Nest application successfully started

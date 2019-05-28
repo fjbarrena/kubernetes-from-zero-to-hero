@@ -1,14 +1,14 @@
-import 'reflect-metadata';
+import "reflect-metadata";
 
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
-import { AppModule } from './app.module';
-import { ApplicationContext } from 'app.context';
-import { Environment } from './environments/environment';
-import { Logger } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { WinstonDailyRotateFileLogger } from 'logger/WinstonDailyRotateFile.logger';
-import { join } from 'path';
+import { AppModule } from "./app.module";
+import { ApplicationContext } from "app.context";
+import { Environment } from "./environments/environment";
+import { Logger } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { WinstonDailyRotateFileLogger } from "logger/WinstonDailyRotateFile.logger";
+import { join } from "path";
 
 // export declare var databaseConnection: Connection;
 export declare var multer: any;
@@ -22,9 +22,9 @@ async function bootstrap() {
   // Ahora creamos la aplicación NEST
   const app = await NestFactory.create(AppModule, {
     // Deshabilitamos el logger por defecto de NestJS, vamos a utilizar nuestra propia implementación con Winston
-    logger: new WinstonDailyRotateFileLogger(),
+    logger: new WinstonDailyRotateFileLogger()
   });
-  Logger.log('app inicializada');
+  Logger.log("app inicializada");
 
   // Enable cors
   app.enableCors();
@@ -36,7 +36,7 @@ async function bootstrap() {
   app.setGlobalPrefix(appEnv.swaggerConfiguration.basePath);
 
   // Directorio de estáticos
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useStaticAssets(join(__dirname, "..", "public"));
 
   // No nos gusta la apariencia de la documentación automática del módulo de Swagger de NEST. Vamos a usar nuestra implementación.
   // Usamos el módulo de swagger para que genere automáticamente el json que leerá nuestro visor. Pero no usaremos el visor integrado en el módulo
@@ -45,14 +45,14 @@ async function bootstrap() {
   app.listen(appEnv.serverConfiguration.port);
 
   Logger.log(
-    'Application listening in port ' + appEnv.serverConfiguration.port,
-    'main.ts',
+    "Application listening in port " + appEnv.serverConfiguration.port,
+    "main.ts"
   );
 }
 
 function doRequires() {
-  multer = require('multer');
-  uuidv4 = require('uuid/v4');
+  multer = require("multer");
+  uuidv4 = require("uuid/v4");
 }
 
 function configureSwagger(_app: any) {

@@ -1,41 +1,41 @@
 {
-    "outboundMailConfiguration": {
-        "host": "smtp.gmail.com",
-        "port": 587,
-        "secure": false,
-        "username": "falso@gmail.com",
-        "password": "n0tienen0tiene"
-    },
-    "databaseConnection": {
-        "type": "mysql",
-        "host": "database",
-        "port": 3306,
-        "username": "root",
-        "password": "secret",
-        "database": "authserver",
-        "entities": ["src/entities/**"],
-        "synchronize": true,
-        "logging": "info"
-    },
-    "serverConfiguration": {
-        "port": 3000
-    },
-    "swaggerConfiguration": {
-        "title": "Auth Server",
-        "description": "REST Services for Auth-Server",
-        "version": "1.0",
-        "basePath": "api"
-    },
-    "authenticationConfiguration": {
-        "algorithm": "HS256",
-        "expiresIn": "2 days",
-        "jwtId": "SharedAuthjsonwebtoken",
-        "jwtKey": "secret",
-        "cipherKey": "SharedAuth(c)!s47001&4Fr4M3w0Rk&Ev3ry7h!ngUv3Ev3RDr34m3d0f",
-        "defaultStrategy": "jwt"
-    },
-    "boostrapConfiguration": {
-        "dbConnectionTimeout": 5000,
-        "dbConnectionMaxTrials": 5
-    }
+  "outboundMailConfiguration": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure": false,
+    "username": "falso@gmail.com",
+    "password": "n0tienen0tiene"
+  },
+  "databaseConnection": {
+    "type": "mysql",
+    "host": "shared-auth-database",
+    "port": 3306,
+    "username": "root",
+    "password": "secret",
+    "database": "authserver",
+    "entities": ["src/entities/**"],
+    "synchronize": true,
+    "logging": "info"
+  },
+  "serverConfiguration": {
+    "port": 3000
+  },
+  "swaggerConfiguration": {
+    "title": "Auth Server",
+    "description": "REST Services for Auth-Server",
+    "version": "1.0",
+    "basePath": "api"
+  },
+  "authenticationConfiguration": {
+    "algorithm": "HS256",
+    "expiresIn": "2 days",
+    "jwtId": "SharedAuthjsonwebtoken",
+    "jwtKey": "secret",
+    "cipherKey": "SharedAuth(c)!s47001&4Fr4M3w0Rk&Ev3ry7h!ngUv3Ev3RDr34m3d0f",
+    "defaultStrategy": "jwt"
+  },
+  "boostrapConfiguration": {
+    "dbConnectionTimeout": 5000,
+    "dbConnectionMaxTrials": 5
+  }
 }

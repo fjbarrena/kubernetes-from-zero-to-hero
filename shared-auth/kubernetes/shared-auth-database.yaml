@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shared-auth-database
+spec:
+  selector:
+    matchLabels:
+      component: shared-auth-database
+  template:
+    metadata:
+      labels:
+        component: shared-auth-database
+    spec:
+      containers:
+        - name: shared-auth-database
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: secret
+            - name: MYSQL_DATABASE
+              value: authserver
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shared-auth-database
+  labels:
+    service: shared-auth-database
+spec:
+  type: NodePort
+  selector:
+    component: shared-auth-database
+  ports:
+    - port: 3306
+      targetPort: 3306

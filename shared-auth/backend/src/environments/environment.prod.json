@@ -1,41 +1,41 @@
 {
-    "outboundMailConfiguration": {
-        "host": "smtp.gmail.com",
-        "port": 587,
-        "secure": false,
-        "username": "falso@gmail.com",
-        "password": "n0tienen0tiene"
-    },
-    "databaseConnection": {
-        "type": "mysql",
-        "host": "localhost",
-        "port": 3306,
-        "username": "root",
-        "password": "n0tiene",
-        "database": "development",
-        "entities": ["src/entities/**"],
-        "synchronize": false,
-        "logging": "error"
-    },
-    "serverConfiguration": {
-        "port": 3000
-    },
-    "swaggerConfiguration": {
-        "title": "NestJS Boilerplate",
-        "description": "Scaffolding de proyectos NEST",
-        "version": "1.0",
-        "basePath": "api"
-    },
-    "authenticationConfiguration": {
-        "algorithm": "HS256",
-        "expiresIn": "2 days",
-        "jwtId": "SharedAuthjsonwebtoken",
-        "jwtKey": "k1f3E4sDF_443rSDf34&afWEt",
-        "cipherKey": "SharedAuth(c)!s47001&4Fr4M3w0Rk&Ev3ry7h!ngUv3Ev3RDr34m3d0f",
-        "defaultStrategy": "jwt"
-    },
-    "boostrapConfiguration": {
-        "dbConnectionTimeout": 5000,
-        "dbConnectionMaxTrials": 10
-    }
+  "outboundMailConfiguration": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure": false,
+    "username": "falso@gmail.com",
+    "password": "n0tienen0tiene"
+  },
+  "databaseConnection": {
+    "type": "mysql",
+    "host": "shared-auth-database",
+    "port": 3306,
+    "username": "root",
+    "password": "n0tiene",
+    "database": "development",
+    "entities": ["src/entities/**"],
+    "synchronize": false,
+    "logging": "error"
+  },
+  "serverConfiguration": {
+    "port": 3000
+  },
+  "swaggerConfiguration": {
+    "title": "NestJS Boilerplate",
+    "description": "Scaffolding de proyectos NEST",
+    "version": "1.0",
+    "basePath": "api"
+  },
+  "authenticationConfiguration": {
+    "algorithm": "HS256",
+    "expiresIn": "2 days",
+    "jwtId": "SharedAuthjsonwebtoken",
+    "jwtKey": "k1f3E4sDF_443rSDf34&afWEt",
+    "cipherKey": "SharedAuth(c)!s47001&4Fr4M3w0Rk&Ev3ry7h!ngUv3Ev3RDr34m3d0f",
+    "defaultStrategy": "jwt"
+  },
+  "boostrapConfiguration": {
+    "dbConnectionTimeout": 5000,
+    "dbConnectionMaxTrials": 10
+  }
 }

@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shared-auth-backend
+spec:
+  selector:
+    matchLabels:
+      component: shared-auth-backend
+  template:
+    metadata:
+      labels:
+        component: shared-auth-backend
+    spec:
+      containers:
+        - name: shared-auth-backend
+          image: fjbarrena/shared-auth-backend:0.1
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shared-auth-backend
+  labels:
+    service: shared-auth-backend
+spec:
+  type: NodePort
+  selector:
+    component: shared-auth-backend
+  ports:
+    - port: 3000
+      name: apiport
+      targetPort: 3000
+    - port: 9229
+      name: nomeacuerdo
+      targetPort: 9229
+    - port: 5000
+      name: remotedebuggingport
+      targetPort: 5000

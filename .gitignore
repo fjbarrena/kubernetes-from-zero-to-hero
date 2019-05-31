@@ -8,3 +8,7 @@ nest-example/node_modules/
 shared-auth/backend/node_modules/
 
 shared-auth/database/
+
+ip-metallb/node_modules/
+
+metallb/test-frontends/random-lol-champion/node_modules/

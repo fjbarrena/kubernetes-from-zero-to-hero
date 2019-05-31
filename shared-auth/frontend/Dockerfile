@@ -3,7 +3,7 @@ FROM node:10.2.1 as builder
 ENV APP_PATH /opt/SharedAuth/frontend
 WORKDIR $APP_PATH
 
-RUN apt-get update && \
+RUN apt-get update || true && \
     apt-get install -y \
     libgtk2.0-0 \
     libnotify-dev \
@@ -22,9 +22,3 @@ RUN npm run build
 
 EXPOSE 8080
 CMD ["npm", "start"]
-
-FROM nginx:1.15.1-alpine
-COPY --from=builder /opt/SharedAuth/frontend/dist /usr/share/nginx/html
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]

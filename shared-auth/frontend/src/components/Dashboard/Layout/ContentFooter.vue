@@ -15,12 +15,10 @@
   </footer>
 </template>
 <script>
-import Service from "SharedAuth/services/backendService.js";
 export default {
   created() {
-    const metadata = Service.getMetadata();
-    this.name = metadata.name;
-    this.version = metadata.version;
+    this.name = "Nombre";
+    this.version = "Version";
   }
 };
 </script>

@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shared-auth-frontend
+spec:
+  selector:
+    matchLabels:
+      component: shared-auth-frontend
+  template:
+    metadata:
+      labels:
+        component: shared-auth-frontend
+    spec:
+      containers:
+        - name: shared-auth-frontend
+          image: fjbarrena/shared-auth-frontend:0.6
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 80
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shared-auth-frontend
+  labels:
+    service: shared-auth-frontend
+spec:
+  type: NodePort
+  selector:
+    component: shared-auth-frontend
+  ports:
+    - port: 8080
+      name: vueport
+      targetPort: 8080
+    - port: 80
+      name: nginxport
+      targetPort: 80

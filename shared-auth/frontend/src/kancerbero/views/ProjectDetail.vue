@@ -28,7 +28,7 @@
                   ></table-list>
                 </div>
               </div>
-            </div> -->
+        </div>-->
         <div class="row">
           <div class="col-md-12">
             <div class="pull-left">
@@ -36,9 +36,9 @@
             </div>
             <div class="pull-right">
               <span class="margin-right">
-                <input type="checkbox" label="Active" v-model="data.active"/>
+                <input type="checkbox" label="Active" v-model="data.active">
                 <label>Active</label>
-                </span>
+              </span>
               <button class="btn btn-warn btn-fill" @click.prevent="goBack">Back</button>
               <button class="btn btn-info btn-fill" @click.prevent="save">Save</button>
             </div>
@@ -50,69 +50,66 @@
 </template>
 
 <script>
-  import TableList from "SharedAuth/components/UIComponents/TableList.vue";
-  import Service from "SharedAuth/services/backendService.js";
-  export default {
-    components: {
-      TableList
-    },
-    data() {
-      return {
-        data: {},
-        id: {},
-        // titleProv: "Authentication Provider List",
-        // subTitle: "List of authentication providers",
-        // columnsProv: ["id", "name", "type", "description","active"]
-      };
-    },
-    created() {
-      if (this.$route.params.id < 0) return;
-      Service.getProvider(this.$route.params.id)
+import TableList from "../components/UIComponents/TableList.vue";
+import Service from "../services/backendService.js";
+export default {
+  components: {
+    TableList
+  },
+  data() {
+    return {
+      data: {},
+      id: {}
+      // titleProv: "Authentication Provider List",
+      // subTitle: "List of authentication providers",
+      // columnsProv: ["id", "name", "type", "description","active"]
+    };
+  },
+  created() {
+    if (this.$route.params.id < 0) return;
+    Service.getProvider(this.$route.params.id)
+      .then(response => {
+        console.log(JSON.stringify(response.data));
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log("There was an error:", error.response);
+      });
+  },
+  methods: {
+    save() {
+      Service.saveProvider(this.data)
         .then(response => {
-          console.log(JSON.stringify(response.data))
           this.data = response.data;
+          alert("saved!");
         })
         .catch(error => {
           console.log("There was an error:", error.response);
         });
     },
-    methods: {
-      save() {
-        Service.saveProvider(this.data)
-          .then(response => {
-            this.data = response.data;
-            alert('saved!')
-          })
-          .catch(error => {
-            console.log("There was an error:", error.response);
-          });
-  
-      },
-      destroy() {
-        if (this.data.active) {
-          alert('Provider is active!');
-          return
-        }
-        Service.deleteProvider(this.data.id)
-          .then(() => {
-            alert('deleted!');
-            this.data = {}
-          })
-          .catch(error => {
-            console.log("There was an error:", error.response);
-          });
-      },
-      goBack() {
-        window.history.length > 1 ?
-          this.$router.go(-1) :
-          this.$router.push('/')
+    destroy() {
+      if (this.data.active) {
+        alert("Provider is active!");
+        return;
       }
+      Service.deleteProvider(this.data.id)
+        .then(() => {
+          alert("deleted!");
+          this.data = {};
+        })
+        .catch(error => {
+          console.log("There was an error:", error.response);
+        });
+    },
+    goBack() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
     }
-  };
+  }
+};
 </script>
 
 <style>
-  .margin-right {
-    margin-right: 80px !important;
-  }
+.margin-right {
+  margin-right: 80px !important;
+}
 </style>

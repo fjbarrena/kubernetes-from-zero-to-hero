@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-import TableList from "SharedAuth/components/UIComponents/TableList.vue";
-import Service from "SharedAuth/services/backendService.js";
+import TableList from "../components/UIComponents/TableList.vue";
+import Service from "../services/backendService.js";
 
 export default {
   components: {

@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import Service from "SharedAuth/services/backendService.js";
+import Service from "../services/backendService.js";
 export default {
   data() {
     return {
